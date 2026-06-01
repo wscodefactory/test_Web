@@ -1,3 +1,4 @@
+// 서울 지하철 실시간 도착 API 응답과 화면 표시용 데이터 타입입니다.
 export type ArrivalDirectionGroup = "up" | "down";
 
 export interface SeoulApiResult {
@@ -39,6 +40,10 @@ export interface RawSubwayArrival {
 }
 
 export interface SeoulSubwayApiResponse {
+  status?: number;
+  code?: string;
+  message?: string;
+  developerMessage?: string;
   list_total_count?: number;
   RESULT?: SeoulApiResult;
   errorMessage?: SeoulSubwayErrorMessage;
@@ -50,10 +55,12 @@ export interface SubwayArrival {
   subwayId: string;
   stationName: string;
   directionGroup: ArrivalDirectionGroup;
+  directionLabel: string;
   directionName: string;
   destination: string;
   trainStatus: string;
   trainOrder: string;
+  arrivalRank: number;
   arrivalMessage: string;
   detailMessage: string;
   arrivalSeconds: number | null;

@@ -13,6 +13,7 @@ export default function ArrivalBoard({
   arrivals,
 }: ArrivalBoardProps) {
   return (
+    // 상행/하행별 도착 열차 목록을 한 구역으로 묶어 보여줍니다.
     <section className={`arrival-board arrival-board--${tone}`}>
       <div className="arrival-board-header">
         <span>{title}</span>

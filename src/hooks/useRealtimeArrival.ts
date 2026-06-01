@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import type { SubwayLine } from "../data/stations";
 import { fetchRealtimeArrivals } from "../services/api/subwayApi";
 import type { GroupedSubwayArrivals } from "../types/subway";
@@ -19,17 +19,28 @@ const initialState: RealtimeArrivalState = {
 
 export const useRealtimeArrival = () => {
   const [state, setState] = useState<RealtimeArrivalState>(initialState);
+  const latestRequestIdRef = useRef(0);
 
+  // 여러 번 빠르게 조회해도 마지막 요청 결과만 화면에 반영합니다.
   const searchArrivals = useCallback(
     async (line: SubwayLine, stationName: string) => {
-      setState((prevState) => ({
-        ...prevState,
+      const requestId = latestRequestIdRef.current + 1;
+      latestRequestIdRef.current = requestId;
+
+      setState({
+        arrivals: null,
         errorMessage: "",
         isLoading: true,
-      }));
+        updatedAt: null,
+      });
 
       try {
         const arrivals = await fetchRealtimeArrivals(line, stationName);
+
+        if (latestRequestIdRef.current !== requestId) {
+          return;
+        }
+
         setState({
           arrivals,
           errorMessage: "",
@@ -37,6 +48,10 @@ export const useRealtimeArrival = () => {
           updatedAt: new Date(),
         });
       } catch (error) {
+        if (latestRequestIdRef.current !== requestId) {
+          return;
+        }
+
         setState({
           arrivals: null,
           errorMessage:

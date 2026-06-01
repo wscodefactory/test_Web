@@ -1,77 +1,68 @@
-.bottom-nav{
-    position: fixed;
-    bottom: 0;
-    left : 50%;
-    transform: translateX(-50%); /*네비게이션 바를 화면 중앙에 위치시키기 위한 변환*/
+/* 앱 전역에서 고정 노출되는 하단 탭 네비게이션 스타일입니다. */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 
-    width: 100%;
-    max-width: 800px; /*네비게이션 바의 최대 너비를 800px로 제한하여, 큰 화면에서도 네비게이션 바가 너무 넓어지지 않도록 함*/
-    height: 64px; /*네비게이션 바의 높이, 아이폰의 홈 인디케이터 영역을 고려하여 계산*/
+  width: 100%;
+  max-width: 800px;
+  height: 64px;
+  display: flex;
+  align-items: stretch;
 
-    display: flex;  /*네비게이션 바를 플렉스 컨테이너로 설정하여 아이템들을 가로로 배치*/
-    align-items: stretch; /*아이템들이 네비게이션 바의 전체 높이를 차지하도록 설정*/
-
-    background-color: #ffffff; /*네비게이션 바의 배경색*/
-    border-top: 1px solid #e5e7eb; /*네비게이션 바의 상단에 얇은 경계선 추가*/
-    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08); /*네비게이션 바에 그림자 효과 추가*/
-
-    z-index: 1000; /*다른 요소들보다 위에 표시되도록 설정*/
-
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
 }
 
-.bottom-nav-item{
-    position: relative; /*활성화된 아이템의 아이콘을 살짝 위로 이동시키기 위한 상대 위치 설정*/
-
-    flex: 1 1 0; /*각 아이템이 네비게이션 바의 가로 공간을 균등하게 차지하도록 설정*/
-    min-width: 0; /*아이템이 너무 좁아지는 것을 방지하기 위해 최소 너비를 0으로 설정*/
-    
-    height: 100%; /*각 아이템이 네비게이션 바의 전체 높이를 차지하도록 설정*/
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px; /*아이콘과 텍스트 사이의 간격*/
-
-    color : #6b7280 ; /*기본 아이템의 색상*/
-    text-decoration: none; /*링크의 기본 밑줄 제거*/
-
-    font-size: 11px; /*텍스트 크기*/
-    font-weight: 500; /*텍스트 굵기*/
-
-    transition : color 0.2s ease, background-color 0.2s ease; /*활성화 상태 변경 시 부드러운 전환 효과*/
+.bottom-nav-item {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.bottom-nav-item:hover{
-    background-color: #f9fafb; /*호버 시 아이템의 배경색*/
+.bottom-nav-item:hover {
+  background-color: #f9fafb;
 }
 
-.bottom-nav-icon{
-    width: 22px; /*아이콘의 너비*/
-    height: 22px; /*아이콘의 높이*/
-    flex-shrink: 0; /*아이콘이 너무 작아지는 것을 방지하기 위해 축소 방지 설정*/
-    stroke-width: 2.2; /*아이콘의 선 굵기*/
+.bottom-nav-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  stroke-width: 2.2;
 }
 
-.bottom-nav-label{
-    line-height: 1; /*텍스트와 아이콘 사이의 간격을 줄이기 위해 line-height를 1로 설정*/
+.bottom-nav-label {
+  line-height: 1;
 }
 
-.bottom-nav-item--active{
-    color: #2563eb; /*활성화된 아이템의 색상*/
-    font-weight: 600; /*활성화된 아이템의 텍스트 굵기*/
+.bottom-nav-item--active {
+  color: #2563eb;
+  font-weight: 600;
 }
 
-.bottom-nav-item--active::after{  /*활성화된 아이템에 강조 효과를 주기 위한 가상 요소*/
-    content: ""; /*가상 요소의 콘텐츠는 비워둠*/
-
-    position: absolute; /*가상 요소를 아이템에 상대적으로 위치시키기 위해 절대 위치 설정*/
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 3px; /*강조 효과의 높이*/
-
-    background-color: #2563eb; /*강조 효과의 색상*/
-    border-radius: 999px 999px 0 0; /*강조 효과의 모서리를 둥글게 처리*/
+.bottom-nav-item--active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: #2563eb;
+  border-radius: 999px 999px 0 0;
 }

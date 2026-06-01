@@ -11,6 +11,7 @@ const formatUpdatedAt = (updatedAt: Date | null): string => {
     return "";
   }
 
+  // 마지막 조회 시간을 한국어 시간 형식으로 표시합니다.
   return new Intl.DateTimeFormat("ko-KR", {
     hour: "numeric",
     minute: "2-digit",

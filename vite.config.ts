@@ -1,20 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
 
   server: {
     proxy: {
-
+      // 브라우저에서는 /subway-api로 호출하고, 개발 서버가 서울 열린데이터 API로 전달합니다.
       "/subway-api": {
-        target : "https://data.seoul.go.kr/dataList/OA-12764/A/1/datasetView.do", 
+        target: "http://swopenapi.seoul.go.kr",
         changeOrigin: true,
-        rewrite: (path) => 
-          path.replace(
-            /^\/subway-api/,
-            "/api/subway"),
+        rewrite: (path) => path.replace(/^\/subway-api/, "/api/subway"),
       },
     },
   },

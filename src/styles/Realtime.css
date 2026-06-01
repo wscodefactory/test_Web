@@ -1,3 +1,4 @@
+/* 실시간 도착정보 조회 화면, 검색 폼, 도착 목록의 시각 스타일입니다. */
 .realtime-page {
   min-height: 100vh;
   padding: 28px 32px 96px;
@@ -213,6 +214,7 @@
 }
 
 .arrival-main {
+  flex: 1 1 auto;
   min-width: 0;
   display: flex;
   align-items: center;
@@ -250,6 +252,8 @@
 }
 
 .arrival-title-row strong {
+  flex: 0 1 auto;
+  min-width: 0;
   overflow: hidden;
   color: #111827;
   font-size: 14px;
@@ -295,6 +299,7 @@
 
 .arrival-time {
   flex: 0 0 auto;
+  min-width: 82px;
   display: grid;
   gap: 3px;
   text-align: right;
@@ -304,6 +309,7 @@
   font-size: 15px;
   font-weight: 900;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .arrival-item--up .arrival-time strong {
@@ -317,6 +323,8 @@
 .arrival-time span {
   color: #64748b;
   font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .arrival-empty {
@@ -440,4 +448,5 @@
   .arrival-time span {
     font-size: 8px;
   }
+
 }

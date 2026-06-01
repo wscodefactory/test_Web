@@ -23,6 +23,7 @@ export default function RealtimeSearchForm({
   const isSearchDisabled = !selectedLine || !selectedStation || isLoading;
 
   return (
+    // 호선과 역을 선택한 뒤 실시간 도착정보 조회를 실행하는 폼입니다.
     <form
       className="realtime-search"
       onSubmit={(event) => {
@@ -37,7 +38,9 @@ export default function RealtimeSearchForm({
         <select
           className="realtime-select"
           value={selectedLine}
-          onChange={(event) => onLineChange(event.target.value as SubwayLine | "")}
+          onChange={(event) =>
+            onLineChange(event.target.value as SubwayLine | "")
+          }
         >
           <option value="">호선을 선택하세요</option>
           {SUBWAY_LINES.map((line) => (
