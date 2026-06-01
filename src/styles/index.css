@@ -1,0 +1,25 @@
+ /* Tailwind CSS 지시어(@tailwind base; 등)를 선언하고, 폰트나 스크롤바 등 앱 전체에 적용될 공통 스타일을 지정합니다 */
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: #f1f5f9; /*앱 전체의 배경색*/
+}
+
+.app{
+    width: 100%; /* 앱의 너비를 100%로 설정하여, 큰 화면에서도 콘텐츠가 충분히 넓어지도록 함 */
+    max-width:800px; /* 앱의 최대 너비를 800px로 제한하여, 큰 화면에서도 콘텐츠가 너무 넓어지지 않도록 함 */
+    min-height: 100vh; /*앱 전체의 최소 높이를 화면 높이로 설정하여, 콘텐츠가 적어도 화면 전체를 채우도록 함*/
+
+    margin: 0 auto; /*앱을 화면 중앙에 배치*/
+    background-color: #ffffff; /*앱의 배경색*/
+}
+
+.app-main{
+    min-height: 100vh; /*페이지 콘텐츠 영역의 최소 높이를 화면 높이로 설정하여, 콘텐츠가 적어도 화면 전체를 채우도록 함*/
+    padding-bottom: 80px; /*페이지 콘텐츠 영역의 하단 패딩, 하단 네비게이션 바의 높이를 고려하여 계산*/
+}
+
