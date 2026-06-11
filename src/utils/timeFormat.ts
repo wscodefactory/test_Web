@@ -1,1 +1,5 @@
-// API에서 내려오는 '65분'을 '1시간 5분'으로 바꾸거나, '14:30:00' 데이터를 화면 요구사항에 맞게 정제하는 포맷팅 함수
+export const formatApproxMinutes = (minutes: number) => {
+  const roundedMinutes = Math.max(0, Math.round(minutes));
+
+  return `약 ${roundedMinutes}분`;
+};

@@ -12,7 +12,7 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     path: "/route",
-    label: "경로",
+    label: "최단경로",
     icon: Route,
   },
   {

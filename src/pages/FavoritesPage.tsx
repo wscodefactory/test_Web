@@ -1,9 +1,18 @@
-// 자주 찾는 역과 경로를 모아 보여줄 즐겨찾기 화면입니다.
+import FavoriteList from "../components/Favorites/FavoriteList";
+import { useFavorites } from "../hooks/useFavorites";
+import "../styles/Favorites.css";
+
 export default function FavoritesPage() {
+  const { favorites, removeFavorite } = useFavorites();
+
   return (
-    <section>
-      <h1>즐겨찾기</h1>
-      <p>자주 찾는 역과 경로를 저장하는 페이지입니다.</p>
+    <section className="favorites-page">
+      <header className="favorites-page-header">
+        <h1>즐겨찾기</h1>
+        <p>저장한 경로를 빠르게 불러옵니다</p>
+      </header>
+
+      <FavoriteList favorites={favorites} onRemove={removeFavorite} />
     </section>
   );
 }

@@ -1,0 +1,428 @@
+/* 지하철 시간표 조회 화면의 선택 폼과 결과 그리드 스타일입니다. */
+.timetable-page {
+  min-height: 100vh;
+  padding: 28px 32px 96px;
+  color: #111827;
+  background:
+    linear-gradient(180deg, #f6fbff 0%, #ffffff 42%),
+    #ffffff;
+}
+
+.timetable-page-header {
+  margin-bottom: 24px;
+}
+
+.timetable-page-header h1 {
+  margin: 0 0 8px;
+  color: #a855f7;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.timetable-page-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.timetable-search {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e9edf5;
+  border-radius: 8px;
+  box-shadow: 0 16px 34px rgba(168, 85, 247, 0.09);
+}
+
+.timetable-field {
+  display: grid;
+  gap: 10px;
+}
+
+.timetable-field-label {
+  color: #111827;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.timetable-select {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 18px;
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid #d8dee9;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.4;
+  outline: none;
+}
+
+.timetable-select:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.16);
+}
+
+.timetable-day-grid,
+.timetable-direction-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.timetable-day-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.timetable-direction-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.timetable-option-button {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #dfe5ed;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.timetable-option-button:hover {
+  border-color: #c084fc;
+}
+
+.timetable-option-button--active {
+  color: #a21caf;
+  background: #fbf5ff;
+  border-color: #a855f7;
+}
+
+.timetable-search-button {
+  width: 100%;
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #a21caf 0%, #ec4899 100%);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 12px 22px rgba(168, 85, 247, 0.22);
+  cursor: pointer;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.timetable-search-button:hover:not(:disabled) {
+  box-shadow: 0 14px 26px rgba(168, 85, 247, 0.28);
+  transform: translateY(-1px);
+}
+
+.timetable-search-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.timetable-error {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  color: #b42318;
+  background: #fff4f2;
+  border: 1px solid #ffd8d2;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.timetable-result {
+  display: grid;
+  gap: 18px;
+  margin-top: 26px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e9edf5;
+  border-radius: 8px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+}
+
+.timetable-result-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #edf1f7;
+}
+
+.timetable-station-title {
+  min-width: 0;
+}
+
+.timetable-station-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.timetable-line-dot {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.timetable-station-name h2 {
+  margin: 0;
+  overflow: hidden;
+  color: #0f172a;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.timetable-station-title p {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.timetable-result-badge {
+  flex: 0 0 auto;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  color: #2563eb;
+  background: #eaf4ff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.timetable-result-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.timetable-result-tabs--days {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.timetable-result-tab {
+  min-height: 48px;
+  color: #334155;
+  background: #f3f4f6;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+}
+
+.timetable-result-tab--active {
+  color: #ffffff;
+  background: #2563eb;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.22);
+}
+
+.timetable-result-tab:disabled {
+  cursor: wait;
+  opacity: 1;
+}
+
+.timetable-time-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.timetable-time-card {
+  min-height: 74px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 12px;
+  color: #0f172a;
+  background: #eef6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.timetable-time-card strong {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.timetable-time-card span {
+  overflow: hidden;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.timetable-time-card em {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 2px 7px;
+  color: #dc2626;
+  background: #fee2e2;
+  border-radius: 8px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.timetable-empty {
+  margin: 0;
+  padding: 20px;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .timetable-page {
+    padding: 10px 16px 86px;
+  }
+
+  .timetable-page-header {
+    margin-bottom: 16px;
+  }
+
+  .timetable-page-header h1 {
+    font-size: 22px;
+  }
+
+  .timetable-page-header p {
+    font-size: 12px;
+  }
+
+  .timetable-search {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .timetable-field {
+    gap: 6px;
+  }
+
+  .timetable-field-label {
+    font-size: 12px;
+  }
+
+  .timetable-select {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .timetable-day-grid,
+  .timetable-direction-grid {
+    gap: 8px;
+  }
+
+  .timetable-option-button {
+    min-height: 40px;
+    font-size: 12px;
+  }
+
+  .timetable-search-button {
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .timetable-result {
+    gap: 14px;
+    margin-top: 18px;
+    padding: 16px 14px;
+  }
+
+  .timetable-result-header {
+    gap: 10px;
+    padding-bottom: 14px;
+  }
+
+  .timetable-line-dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .timetable-station-name h2 {
+    font-size: 16px;
+  }
+
+  .timetable-station-title p {
+    font-size: 11px;
+  }
+
+  .timetable-result-badge {
+    min-height: 28px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
+  .timetable-result-tabs {
+    gap: 8px;
+  }
+
+  .timetable-result-tab {
+    min-height: 40px;
+    font-size: 12px;
+  }
+
+  .timetable-time-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .timetable-time-card {
+    min-height: 62px;
+    padding: 10px;
+  }
+
+  .timetable-time-card strong {
+    font-size: 14px;
+  }
+
+  .timetable-time-card span {
+    font-size: 10px;
+  }
+}

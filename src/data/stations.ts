@@ -35,7 +35,7 @@ export const SUBWAY_ID_BY_LINE: Record<SubwayLine, string> = {
 };
 
 export const LINE_COLOR_BY_LINE: Record<SubwayLine, string> = {
-  "1호선": "#0052a4",
+  "1호선": "#0052a4", 
   "2호선": "#00a84d",
   "3호선": "#ef7c1c",
   "4호선": "#00a5de",
